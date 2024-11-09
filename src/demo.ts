@@ -9,15 +9,19 @@ const two = document.querySelector("#two") as HTMLElement;
 const three = document.querySelector("#three") as HTMLElement;
 const button1 = document.querySelector("#update-button-1") as HTMLButtonElement;
 const button2 = document.querySelector("#update-button-2") as HTMLButtonElement;
+const button3 = document.querySelector("#update-button-3") as HTMLButtonElement;
 
-let count = 0;
+let value1 = 0;
+let value2 = 0;
+let value3 = 0;
 
-const [updateValue1] = provideContext(one, context1, new Date().toISOString());
-const [updateValue2] = provideContext(one, context2, count);
-const [] = provideContext(two, context2, "foo");
+const [updateValue1] = provideContext(one, context1, value1);
+const [updateValue2] = provideContext(one, context2, value2);
+const [updateValue3] = provideContext(two, context2, value3);
 
-button1.addEventListener("click", () => updateValue1(new Date().toISOString()));
-button2.addEventListener("click", () => updateValue2(++count));
+button1.addEventListener("click", () => updateValue1(++value1));
+button2.addEventListener("click", () => updateValue2(++value2));
+button3.addEventListener("click", () => updateValue3(++value3));
 
 const consume = (el: Element, context: UnknownContext) =>
   consumeContext(
