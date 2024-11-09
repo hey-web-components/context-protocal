@@ -1,5 +1,5 @@
 import { UnknownContext } from "./def";
-import { consumeContext, createContext, provideContext } from "./impl";
+import { consumeContext, createContext, provideContext } from "./index";
 
 const context1 = createContext("context-1");
 const context2 = createContext("context-2");

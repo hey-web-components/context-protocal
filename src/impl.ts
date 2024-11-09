@@ -5,9 +5,6 @@ import {
   UnknownContext,
 } from "./def";
 
-export const createContext = <ValueType>(key: unknown) =>
-  key as Context<typeof key, ValueType>;
-
 export const provideContext = <TKey, TValue>(
   el: Element,
   context: Context<TKey, TValue>,
