@@ -7,12 +7,30 @@
     <title>Vite + TS</title>
   </head>
   <body>
+    <style>
+      div {
+        padding: 10px;
+        border: 1px solid;
+      }
+    </style>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
     <div id="one">
+      <span class="context-1-display"></span>
+      <br />
+      <span class="context-2-display"></span>
       <div id="two">
-        <div id="three"></div>
+        <span class="context-1-display"></span>
+        <br />
+        <span class="context-2-display"></span>
+        <div id="three">
+          <span class="context-1-display"></span>
+          <br />
+          <span class="context-2-display"></span>
+        </div>
       </div>
     </div>
+    <button id="update-button-1">Update Context 1</button>
+    <button id="update-button-2">Update Context 2</button>
   </body>
 </html>
