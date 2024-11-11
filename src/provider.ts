@@ -90,7 +90,7 @@ export const provideContext = <TKey, TValue>(
   el.addEventListener("context-request", contextRequestHandler);
   el.addEventListener("context-provider", contextProviderHandler);
 
-  return [updateValue, stop];
+  return [updateValue, stop] as [(value: TValue) => void, () => void];
 };
 
 const removeItem = <T>(list: T[], item: T) => {
