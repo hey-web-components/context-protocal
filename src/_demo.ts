@@ -1,8 +1,16 @@
-import { UnknownContext } from "./def";
-import { consumeContext, createContext, provideContext } from "./index";
+import {
+  attachContextRoot,
+  consumeContext,
+  createContext,
+  provideContext,
+  UnknownContext,
+} from "./index";
 
 const context1 = createContext("context-1");
 const context2 = createContext("context-2");
+
+attachContextRoot(context1, document.body);
+attachContextRoot(context2, document.body);
 
 const one = document.querySelector("#one") as HTMLElement;
 const two = document.querySelector("#two") as HTMLElement;

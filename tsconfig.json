@@ -11,7 +11,10 @@
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
-    "noEmit": true,
+    "noEmit": false,
+    "declaration": true,
+    "declarationDir": "./types",
+    "emitDeclarationOnly": true,
 
     /* Linting */
     "strict": true,

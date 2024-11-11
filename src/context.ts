@@ -57,6 +57,19 @@ export class ContextRequestEvent<T extends UnknownContext> extends Event {
   }
 }
 
+export class ContextProviderEvent<T extends UnknownContext> extends Event {
+  readonly context: T;
+
+  /**
+   *
+   * @param context the context which this provider can provide
+   */
+  constructor(context: T) {
+    super("context-provider", { bubbles: true, composed: true });
+    this.context = context;
+  }
+}
+
 declare global {
   interface ElementEventMap {
     /**
@@ -64,5 +77,10 @@ declare global {
      * a context value to be injected by an external provider.
      */
     "context-request": ContextRequestEvent<Context<unknown, unknown>>;
+    /**
+     * A 'context-provider' event can be emitted by any element which hosts
+     * a context provider to indicate it is available for use.
+     */
+    "context-provider": ContextProviderEvent<UnknownContext>;
   }
 }
