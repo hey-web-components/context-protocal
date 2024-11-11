@@ -4,87 +4,11 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Context Protocal Demo</title>
-    <script type="module" src="/src/_demo.ts"></script>
+    <title>Context Protocal Demos</title>
   </head>
   <body>
-    <style>
-      :root {
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      div {
-        padding: 10px;
-        border: 1px solid;
-      }
-    </style>
-
-    <div id="one">
-      <b>one</b>
-      <br />
-      <span class="context-1-display"></span>
-      <br />
-      <span class="context-2-display"></span>
-      <div id="two">
-        <b>two</b>
-        <br />
-        <span class="context-1-display"></span>
-        <br />
-        <span class="context-2-display"></span>
-        <div id="three">
-          <b>three</b>
-          <br />
-          <span class="context-1-display"></span>
-          <br />
-          <span class="context-2-display"></span>
-        </div>
-      </div>
-    </div>
-    <button id="update-button-1">Update Context 1 on One</button>
-    <button id="update-button-2">Update Context 2 on One</button>
-    <button id="update-button-3">Update Context 2 on Two</button>
-    <hr />
-    <ol>
-      <li>
-        <p>
-          There are two type of contexts: <b>context 1</b> and <b>context 2</b>.
-        </p>
-      </li>
-      <li>
-        <p>
-          There are three elements: <b>one</b>, <b>two</b> (child of
-          <b>one</b>), and <b>three</b> (child of <b>two</b>).
-        </p>
-      </li>
-      <li>
-        <p><b>One</b> provides both <b>context 1</b> and <b>context 2</b>.</p>
-      </li>
-      <li>
-        <p><b>Two</b> provides only <b>context 2</b>.</p>
-      </li>
-      <li>
-        <p>
-          <b>One</b>, <b>two</b>, and <b>three</b> all consumes both
-          <b>context 1</b> and <b>context 2</b>.
-        </p>
-      </li>
-      <li>
-        <p>
-          <b>One</b> can consume nothing since it does not have a ancestor that
-          provides contexts.
-        </p>
-      </li>
-      <li>
-        <p>
-          <b>Two</b> can consume both <b>context 1</b> and <b>context 2</b> from
-          <b>one</b>.
-        </p>
-      </li>
-      <li>
-        <p>
-          <b>Three</b> can consume both <b>context 1</b> from <b>one</b> and
-          <b>context 2</b> from <b>two</b>.
-        </p>
-      </li>
-    </ol>
+    <a href="./demos/native-elements/index.html">Native Elements</a>
+    <br />
+    <a href="./demos/custom-elements/index.html">Custom Elements</a>
   </body>
 </html>

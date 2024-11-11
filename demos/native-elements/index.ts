@@ -4,10 +4,10 @@ import {
   createContext,
   provideContext,
   UnknownContext,
-} from "./index";
+} from "../../src/index";
 
-const context1 = createContext("context-1");
-const context2 = createContext("context-2");
+const context1 = createContext<number>("context-1");
+const context2 = createContext<number>("context-2");
 
 attachContextRoot(context1, document.body);
 attachContextRoot(context2, document.body);
@@ -31,19 +31,19 @@ button1.addEventListener("click", () => updateValue1(++value1));
 button2.addEventListener("click", () => updateValue2(++value2));
 button3.addEventListener("click", () => updateValue3(++value3));
 
-const consume = (el: Element, context: UnknownContext) =>
-  consumeContext(
-    el,
-    context,
-    (value) => {
-      const display = el.querySelector(`.${context}-display`);
-      if (!display) {
-        return;
-      }
-      display.innerHTML = `${context}: ${value}`;
-    },
-    true
-  );
+const callbacks: ((value: number) => void)[] = []; // hard ref the callbacks
+
+const consume = (el: Element, context: UnknownContext) => {
+  const callback = (value) => {
+    const display = el.querySelector(`.${context}-display`);
+    if (!display) {
+      return;
+    }
+    display.innerHTML = `${context}: ${value}`;
+  };
+  callbacks.push(callback);
+  consumeContext(el, context, callback, true);
+};
 
 consume(one, context1);
 consume(one, context2);
