@@ -84,6 +84,14 @@ export const provideContext = <TKey, TValue>(
   const stop = () => {
     el.removeEventListener("context-request", contextRequestHandler);
     el.removeEventListener("context-provider", contextProviderHandler);
+    for (const { consumerRef, callbackRef } of subscriptions) {
+      const consumer = consumerRef.deref();
+      const callback = callbackRef.deref();
+      if (!consumer || !callback) {
+        continue;
+      }
+      consumer.dispatchEvent(new ContextRequestEvent(context, callback, true));
+    }
     subscriptions = [];
   };
 
