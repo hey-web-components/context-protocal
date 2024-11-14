@@ -98,6 +98,8 @@ export const provideContext = <TKey, TValue>(
   el.addEventListener("context-request", contextRequestHandler);
   el.addEventListener("context-provider", contextProviderHandler);
 
+  el.dispatchEvent(new ContextProviderEvent(context));
+
   return [updateValue, stop] as [(value: TValue) => void, () => void];
 };
 
