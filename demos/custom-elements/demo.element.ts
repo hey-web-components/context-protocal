@@ -38,18 +38,24 @@ export class Demo extends HTMLElement {
       [this.#updateContext1Value, this.#stopProvideContext1] = provideContext(
         this,
         context1,
-        this.#providedContext1Value
+        { initialValue: this.#providedContext1Value }
       );
     }
     if (this.getAttribute("provide-context-2") != null) {
       [this.#updateContext2Value, this.#stopProvideContext2] = provideContext(
         this,
         context2,
-        this.#providedContext2Value
+        { initialValue: this.#providedContext2Value }
       );
     }
-    consumeContext(this, context1, this.#context1Callback, true);
-    consumeContext(this, context2, this.#context2Callback, true);
+    consumeContext(this, context1, {
+      callback: this.#context1Callback,
+      subscribe: true,
+    });
+    consumeContext(this, context2, {
+      callback: this.#context2Callback,
+      subscribe: true,
+    });
 
     this.render();
   }

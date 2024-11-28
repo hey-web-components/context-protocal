@@ -6,12 +6,16 @@ import {
   UnknownContext,
 } from "./context";
 
+type ProvideContextOptions<TValue> = {
+  initialValue?: TValue;
+};
+
 export const provideContext = <TKey, TValue>(
   el: Element,
   context: Context<TKey, TValue>,
-  initialValue?: TValue
+  options: ProvideContextOptions<TValue> = {}
 ) => {
-  let value = initialValue;
+  let value = options?.initialValue;
   let subscriptions: {
     consumerRef: WeakRef<Element>;
     callbackRef: WeakRef<ContextCallback<unknown>>;

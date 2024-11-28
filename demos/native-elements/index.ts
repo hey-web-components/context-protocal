@@ -23,9 +23,9 @@ let value1 = 0;
 let value2 = 0;
 let value3 = 0;
 
-const [updateValue1] = provideContext(one, context1, value1);
-const [updateValue2] = provideContext(one, context2, value2);
-const [updateValue3] = provideContext(two, context2, value3);
+const [updateValue1] = provideContext(one, context1, { initialValue: value1 });
+const [updateValue2] = provideContext(one, context2, { initialValue: value2 });
+const [updateValue3] = provideContext(two, context2, { initialValue: value3 });
 
 button1.addEventListener("click", () => updateValue1(++value1));
 button2.addEventListener("click", () => updateValue2(++value2));
@@ -42,7 +42,7 @@ const consume = (el: Element, context: UnknownContext) => {
     display.innerHTML = `${context}: ${value}`;
   };
   callbacks.push(callback);
-  consumeContext(el, context, callback, true);
+  consumeContext(el, context, { callback, subscribe: true });
 };
 
 consume(one, context1);
