@@ -1,6 +1,5 @@
 {
-  "name": "context-protocal",
-  "private": true,
+  "name": "@hey-web-components/context-protocal",
   "version": "0.0.0",
   "type": "module",
   "exports": {
