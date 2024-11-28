@@ -1,6 +1,6 @@
 {
   "name": "@hey-web-components/context-protocal",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An protocal for data passing between elements using DOM events.",
   "repository": {
     "type": "git",
