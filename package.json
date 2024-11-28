@@ -1,6 +1,6 @@
 {
   "name": "@hey-web-components/context-protocol",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A protocol for data passing between elements using DOM events.",
   "repository": {
     "type": "git",
