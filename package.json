@@ -1,10 +1,10 @@
 {
-  "name": "@hey-web-components/context-protocal",
+  "name": "@hey-web-components/context-protocol",
   "version": "0.1.2",
-  "description": "An protocal for data passing between elements using DOM events.",
+  "description": "A protocol for data passing between elements using DOM events.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hey-web-components/context-protocal.git"
+    "url": "https://github.com/hey-web-components/context-protocol.git"
   },
   "type": "module",
   "exports": {
